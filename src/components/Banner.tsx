@@ -27,6 +27,10 @@ const StyledBanner = styled.header`
     text-align: center;
   }
 
+  .banner__text {
+    flex: 0 0 55%;
+  }
+
   .para {
     margin-top: 3rem;
 
@@ -47,10 +51,9 @@ const StyledBanner = styled.header`
     margin-top: 3rem;
   }
 
-  object,
-  img {
+  .img-container {
     display: block;
-    height: 35rem;
+    flex: 0 0 28%;
 
     @media (min-width: 961px) {
       margin-left: 3rem;
@@ -58,7 +61,13 @@ const StyledBanner = styled.header`
 
     @media (max-width: 960px) {
       height: 20rem;
+      width: 100%;
+      max-width: 30rem;
       margin: 5rem 0;
+    }
+
+    @media (max-width: 500px) {
+        max-width: 22rem;
     }
   }
 `
@@ -82,7 +91,9 @@ const Banner: React.SFC<BannerProps> = ({ subtitle, title, paragraph, linkPath, 
         {link(linkPath, linkText, '', true, false)}
         {children}
       </div>
-      {img}
+      <div className="img-container">
+        {img}
+      </div>
     </StyledBanner>
   </div>
 )
